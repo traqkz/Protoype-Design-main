@@ -1,14 +1,15 @@
 name: Cypress Tests
 
 on:
-  push:
-    branches: [ "*" ]
-  pull_request:
-    branches: [ "*" ]
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types:
+      - completed
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
     steps:
       - name: Checkout
@@ -22,6 +23,9 @@ jobs:
           
       - name: Install dependencies
         run: npm ci
+        
+      - name: Wait for site deployment
+        run: sleep 30
         
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
