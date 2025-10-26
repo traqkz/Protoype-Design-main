@@ -8,6 +8,20 @@ all js goes at the bottom
 read this entire beercss documentation below when editing
 after making an edit offer to run the cypress tests and if there is a failure offer to fix it
 
+## plan execution requirements
+
+The last step of any plan you create MUST be to run the cypress tests and help resolve any test errors that occur. This ensures all changes are properly tested and validated before completion.
+
+### testing local changes
+
+When testing local changes, you MUST:
+1. Change the baseUrl in cypress.config.js to 'http://localhost:3000'
+2. Start a local server: `cd docs && python -m http.server 3000`
+3. Run the tests: `npm test`
+4. Revert the baseUrl back to the original remote URL: 'https://traqkz.github.io/Protoype-Design-main'
+
+This ensures tests run against your local changes, not the deployed version.
+
 # BeerCSS - Complete Documentation for AI/LLM Systems
 
 This file is auto-generated from the BeerCSS documentation.
