@@ -6,7 +6,7 @@ don't use any custom css, instead use beer css settings, helpers, and elements
 never import new js or css files, other than style css
 all js goes at the bottom
 read this entire beercss documentation below when editing
-
+after making an edit offer to run the cypress tests and if there is a failure offer to fix it
 
 # BeerCSS - Complete Documentation for AI/LLM Systems
 
